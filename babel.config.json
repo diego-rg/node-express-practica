@@ -4,7 +4,7 @@
         "@babel/preset-env",//Para que use hasta última versión de ES& implementada
         {
           "targets": {
-            "node": "16.13.2",//No tiene sentido al ser versión actual de Node? Se usaría para dar soporte a versión antigua?
+            "node": "2.5.0",//hcemos prueba para compatibilidad con versión de 2015
             "edge": "17",
             "firefox": "60",
             "chrome": "67",
