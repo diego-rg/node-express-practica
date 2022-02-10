@@ -8,8 +8,8 @@ fs.readFile(file, (err, content) => {
         return console.log(err);
     }
 
-    //Si éxito, pasamos os datos a string e dividímolos nun array por cada salto de línea ("\n")
-    const lines = content.toString().split("\n");
+    //Si éxito, pasamos os datos a string e dividímolos nun array por cada salto de línea ("/n")
+    const lines = content.toString().split("/n");
 
     for (let line of lines) {
         console.log(`Hay ${line.length} caracteres.`);
@@ -17,3 +17,5 @@ fs.readFile(file, (err, content) => {
 
     console.log(`Hay un total de ${lines.length} líneas en el fichero ${file}`);
 })
+
+//Como este ejemplo e síncrono, non se executará a nosa función ata que se termine de ler o archivo
