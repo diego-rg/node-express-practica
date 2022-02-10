@@ -1,0 +1,11 @@
+{
+  "name": "node-express-practica",
+  "version": "1.0.0",
+  "description": "Practicando con Node, Express, Babel, etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eu",
+  "license": "ISC"
+}
