@@ -2,9 +2,7 @@
 const fs = require('fs');
 const readline = require('readline');
 
-export default file => {
-    console.log("Eventos");
-}
+module.exports.file = process.argv[2];
 
 let lines = 0;
 

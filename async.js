@@ -1,10 +1,7 @@
 //Versión asíncrona
 const fs = require('fs');
-const readline = require('readline');
 
-export default file => {
-    console.log("Asíncrono");
-}
+module.exports.file = process.argv[2];
 
 fs.readFile(file, (err, content) => {
     if(err) {
