@@ -1,14 +1,16 @@
+//Versión asíncrona
 const fs = require('fs');
+const readline = require('readline');
 
-const file = process.argv[2];
+export default file => {
+    console.log("Asíncrono");
+}
 
-//creamos un evento para ler o archivo e coller o contido
 fs.readFile(file, (err, content) => {
     if(err) {
         return console.log(err);
     }
 
-    //Si éxito, pasamos os datos a string e dividímolos nun array por cada salto de línea ("/n")
     const lines = content.toString().split("/n");
 
     for (let line of lines) {
@@ -17,5 +19,3 @@ fs.readFile(file, (err, content) => {
 
     console.log(`Hay un total de ${lines.length} líneas en el fichero ${file}`);
 })
-
-//Como este ejemplo e síncrono, non se executará a nosa función ata que se termine de ler o archivo
