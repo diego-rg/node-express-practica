@@ -1,20 +1,24 @@
-//Versión con programación orientada a eventos
-const fs = require('fs');
-const readline = require('readline');
+import fs from 'fs'
+import readline from 'readline'
 
-module.exports.file = process.argv[2];
+export default file => {
+  console.log('Eventos')
 
-let lines = 0;
+  let lines = 0
 
-const rl = readline.createInterface({
+  console.log(`Fichero selecionado: ${file}\n`)
+
+  const rl = readline.createInterface({
     input: fs.createReadStream(file),
-});
+    crlfDelay: Infinity
+  })
 
-rl.on("line", (line) => {
-    ++lines;
-    console.log(`Hay ${line.length} caracteres en la línea ${lines}.`);
-});
+  rl.on('line', (line) => {
+    ++lines
+    console.log(`Número de caracteres por linea: ${line.length}`)
+  })
 
-rl.on("close", () => {
-    console.log(`Hay un total de ${lines} líneas en el fichero ${file}`);
-})
+  rl.on('close', () => {
+    console.log(`\nNúmero total de lineas: ${lines}`)
+  })
+}

@@ -1,18 +1,21 @@
-//Versión asíncrona
-const fs = require('fs');
+import fs from 'fs'
 
-module.exports.file = process.argv[2];
+export default file => {
+  console.log('Asíncrono')
 
-fs.readFile(file, (err, content) => {
-    if(err) {
-        return console.log(err);
+  fs.readFile(file, (err, contents) => {
+    if (err) {
+      return console.log(err)
     }
 
-    const lines = content.toString().split("/n");
+    const lines = contents.toString().split('\n')
 
     for (let line of lines) {
-        console.log(`Hay ${line.length} caracteres.`);
+      console.log(`Número de caracteres por linea: ${line.length}`)
     }
 
-    console.log(`Hay un total de ${lines.length} líneas en el fichero ${file}`);
-})
+    console.log(`\nNúmero total de lineas: ${lines.length}`)
+  })
+
+  console.log(`Fichero selecionado: ${file}\n`)
+}

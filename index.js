@@ -1,30 +1,29 @@
-const readline = require('readline');
+//Para usar import export añadir "type": "module" ao package.json
+import readline from 'readline'
+import async from './async.js'
+import events from './event.js'
 
-const async = require("./async.js");
-const event = require("./event.js");
-
-const file = process.argv[2];
+const file = process.argv[2]
 
 const rl = readline.createInterface({
-    input: process.stdin,//Entrada de datos predefinida do pc
-    output: process.stdout
-});
+  input: process.stdin,
+  output: process.stdout
+})
 
 rl.question(
-    `Seleccione el método de lectura del fichero:
-    1. para Asíncrono
-    2. para Eventos`,
-    value => {
-        console.log(`Ha seleccionado ${value}\n\n`)
+  `Como quiere leer el fichero?
+  1. De forma asíncrona (default)
+  2. Con eventos
+  Seleccione una opcion: `,
+  value => {
+    console.log(`Selecciono ${value}\n\n`)
 
-        switch (value) {
-            case "1":
-                async(file)
-                break;
-            case "2":
-                event(file)
-                break;
-        }
-        rl.close();
+    switch (value) {
+      case '2':
+        events(file)
+        break
+      default:
+        async(file)
     }
-);
+    rl.close()
+  })
